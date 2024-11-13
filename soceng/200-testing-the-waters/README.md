@@ -25,6 +25,23 @@ https://www.aura.com/learn/phishing-email-examples
 Points: 200, static
 Author: Allison
 
+## Walkthrough
+
+Emails were judged by the following rubric, and must have scored an 11 or higher to receive the flag. We must admit that judgements can be subjective and so some entries were put to a panel vote. The rubric:
+
+- Viable story?
+  - x/10 points
+- Pressure to impress?
+  - x/3 points
+- Sense of urgency? Angry? Intimidating? Crying?
+  - x/3 points
+- Attempt to establish rapport?
+  - x/3 points
+- Bonus: Style points, above & beyond?
+  - x/2 points
+- Bonus: Hackers theme
+  - x/2 points
+
 ## Flag
 
 `pdx{lik3Sho0tingpHish1naBarr3l}`

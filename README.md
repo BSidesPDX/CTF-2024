@@ -9,11 +9,14 @@ Thank you to our challenge authors:
 - Allison Naaktgeboren
 - Casey Colley
 - Evan Johnson
+- Don Moncrief
 - Milan August
 - Travis Noyes
 - Max Leibowitz
-- Chris Tu
+- Chris Lu
+- Mike Condon
 - Otso Barron
+- Shay Cichocki
 
 And thank you to all of the volunteers who helped run these challenges day-of! <3
 
@@ -76,10 +79,30 @@ And thank you to all of the volunteers who helped run these challenges day-of! <
 | 20    | AlienSoul                        | 1250  |
 | ...   | ...                              | ...   |
 
+### Judge's Choice Awards
+
+**Fresh Meat Fridays:**
+- Winner: IFC
+- Honorable Mention: FalseFlag & Drop Tables
+
+**Power behind the throne:**
+- Winner: Sesbian Lex
+- Honorable Mention: ?? "Georgie is scared"
+
+**Testing the Waters:**
+- Winner: CyberDucks
+- Honorable Mention: FalseFlag, OSUSEC
+
+**Duke's Dinner Party:**
+- Winner: Flying Hedgehogs
+- Honorable Mention: ??
+
+## More Stats :3
+
 We had:
 - 78 teams who registered
 - 64 teams who completed at least one challenge
-- 145 users
+- 145 total users
 - 1 challenge with zero solves
 - 354 correct, submitted flags
 - 1212 total submitted flag attempts

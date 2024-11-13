@@ -11,27 +11,24 @@ You’ll need to wrap the secret in the flag format pdx{xxx-xxx-xxxx} when you s
 ```
 
 Points: 500..200, dynamic
-Author: Chris and Allison
+Author: Chris, Shay, & Mike
 
 ## Walkthrough
 
-Callers were judged by the following rubric, and must have scored a 13 or higher to receive the flag:
+Callers were judged by the following rubric, and must have scored a 15 or higher to receive the flag. We must admit that judgements can be subjective and so some entries were put to a panel vote. The rubric:
 
-- Is there pressure to impress the caller?
-  - Attempts to intimidate Personal Assistant
-  - 1-5 pts for pressure
-- Pressure to go along with the call?
-  - Like sales tactics? /Rhetorical tricks like leading questions/cold reading
-  - 1-5 pts for pressure
-- Create sense of urgency
-  - Is the caller angry, intimidating, scared, upset?
-  - 1-5 pts for pressure
-- Is the caller’s story viable? 1-10
-  - Contractor visiting office
-  - Other new employee whose manager has already left for the day
-- Breaking character: -1
-  - New employee would get suspicious 
-- Organizational Sophistication: Presence of escalating structure? <yes, no>
+- Viable story?
+  - x/10 points
+- Hot gossip trade?
+  - x/5 points
+- Sense of urgency? Angry? Intimidating? Crying?
+  - x/3 points
+- Attempt to establish rapport?
+  - x/3 points
+- Bonus: Style points, above & beyond?
+  - x/2 points
+- Bonus: Hackers theme
+  - x/2 points
 
 ## Flag
 
