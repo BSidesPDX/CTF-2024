@@ -1,0 +1,19 @@
+{
+  "name": "scheming-with-templates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "Evan Johnson",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div id="computer">
+    <img id="computerImage" src="/static/images/pc.png" />
+    <div id="computerScreen">
+        <div id="responseBox">
+            <p>{{ chatbotResponse }}</p>
+        </div>
+        <br />
+        <div id="questionBox">
+            <form id="questionForm" method="POST" action="/">
+                <input id="questionInput" type="text" name="questionInput" placeholder="What is the password?" value="{{ userInput }}" autocomplete="off">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

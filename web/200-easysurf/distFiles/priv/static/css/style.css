@@ -1,0 +1,23 @@
+header,
+div {
+    margin: auto;
+    width: 80%;
+}
+
+h1 {
+    color: purple;
+}
+
+p {
+    color: blueviolet;
+}
+
+.proxy-output-container {
+    height: 80%;
+}
+
+.proxy-output {
+    height: 80%;
+    margin: auto;
+    padding-top: 1rem;
+}

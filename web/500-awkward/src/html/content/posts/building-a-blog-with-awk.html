@@ -1,0 +1,133 @@
+    <h1>Building a Blog with AWK: Processing HTTP Requests from the Command Line</h1>
+    <p><strong>Subtitle:</strong> Leveraging the AWK Command-Line Utility to Create a Simple Blog Platform</p>
+    
+    <p>AWK is a versatile command-line utility for pattern scanning and processing in Unix-like environments. Although it's not typically used for web development, with a bit of creativity, you can harness AWK to build simple server-side applications. In this post, we’ll explore how to use AWK to process HTTP requests and create a fully-functional blog site.</p>
+
+    <h2>Overview of AWK as a Web Server</h2>
+    <p>To build a basic blog platform, we’ll use AWK to process HTTP requests and serve HTML content. AWK will read incoming HTTP request headers, parse them, and respond with appropriate HTML based on the request type.</p>
+
+    <p>We’ll demonstrate how to handle three common actions:</p>
+    <ul>
+        <li>Serving the blog homepage (a simple GET request).</li>
+        <li>Displaying individual blog posts (using URL parameters).</li>
+        <li>Submitting a new blog post (using a POST request).</li>
+    </ul>
+
+    <h2>Step 1: Setting Up a Basic AWK HTTP Server</h2>
+    <p>For this tutorial, we’ll use AWK alongside traditional Unix utilities like <code>nc</code> (Netcat) to simulate a basic HTTP server.</p>
+
+    <h3>1.1 Starting the Server</h3>
+    <p>Here’s a simple command to run a basic AWK-based server using Netcat:</p>
+    
+    <pre><code>while true; do 
+    echo -e "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n$(awk -f blog_server.awk)" | nc -l -p 8080;
+done</code></pre>
+    
+    <p>This command listens on port 8080, and when an HTTP request is received, it invokes an AWK script named <code>blog_server.awk</code>. AWK then processes the incoming request and sends back a response.</p>
+
+    <h3>1.2 Writing the AWK Script</h3>
+    <p>We’ll now create a script named <code>blog_server.awk</code> to handle and respond to incoming HTTP requests. The script will parse the request and serve the appropriate content.</p>
+
+    <h2>Step 2: Handling HTTP GET Requests</h2>
+    <p>We’ll start by handling GET requests for the homepage. Let’s look at the AWK script:</p>
+
+    <pre><code>#!/usr/bin/awk -f
+
+BEGIN {
+    # Print the HTTP response header
+    print "HTTP/1.1 200 OK";
+    print "Content-Type: text/html";
+    print "";
+    
+    # Simulate the homepage with a simple HTML
+    print "&lt;html&gt;";
+    print "&lt;head&gt;&lt;title&gt;My Blog&lt;/title&gt;&lt;/head&gt;";
+    print "&lt;body&gt;";
+    print "&lt;h1&gt;Welcome to My Blog!&lt;/h1&gt;";
+    print "&lt;p&gt;This is a simple blog built using AWK.&lt;/p&gt;";
+    print "&lt;a href=\"/post/1\"&gt;Read Post 1&lt;/a&gt;";
+    print "&lt;/body&gt;";
+    print "&lt;/html&gt;";
+}</code></pre>
+
+    <p>Here’s what’s happening:</p>
+    <ul>
+        <li>The <code>BEGIN</code> block in AWK runs before processing input lines, making it ideal for printing a static HTML page in response to a GET request.</li>
+        <li>We print the HTTP status and header lines, followed by the HTML content.</li>
+        <li>In this example, the homepage displays a link to an individual blog post (Post 1).</li>
+    </ul>
+
+    <h2>Step 3: Handling Dynamic Blog Post URLs</h2>
+    <p>To serve individual posts, we need to parse the incoming URL path. Let’s update the script to check if the requested path matches a post URL:</p>
+
+    <pre><code># Get the request line (e.g., GET /post/1 HTTP/1.1)
+{
+    if ($1 == "GET" && $2 ~ /^\/post\/[0-9]+$/) {
+        post_id = substr($2, 7);
+        
+        # Print HTTP header
+        print "HTTP/1.1 200 OK";
+        print "Content-Type: text/html";
+        print "";
+
+        # Display the requested blog post
+        print "&lt;html&gt;&lt;body&gt;";
+        print "&lt;h1&gt;Blog Post " post_id "&lt;/h1&gt;";
+        print "&lt;p&gt;This is the content of blog post " post_id ".&lt;/p&gt;";
+        print "&lt;a href=\"/\"&gt;Back to Homepage&lt;/a&gt;";
+        print "&lt;/body&gt;&lt;/html&gt;";
+    }
+}</code></pre>
+
+    <p>In this section, we:</p>
+    <ul>
+        <li>Extract the <code>post_id</code> from the URL path using <code>substr($2, 7)</code>, which skips the first 6 characters of the URL ("/post/").</li>
+        <li>Print a simple HTML page with the extracted post ID.</li>
+    </ul>
+
+    <h2>Step 4: Handling POST Requests to Submit New Posts</h2>
+    <p>While AWK is not built to handle complex POST requests, we can simulate a basic implementation by capturing input data sent via a form. Here’s how:</p>
+
+    <pre><code>#!/usr/bin/awk -f
+
+{
+    # Read POST request data and save it to a file
+    if ($1 == "POST" && $2 == "/new") {
+        getline content
+        split(content, data, "&");
+        
+        for (i in data) {
+            split(data[i], kv, "=");
+            if (kv[1] == "title") {
+                title = kv[2];
+            } else if (kv[1] == "body") {
+                body = kv[2];
+            }
+        }
+        
+        # Save post to a file (simple simulation)
+        print "Post Title: " title > "blog_post_" title ".txt";
+        print "Post Body: " body >> "blog_post_" title ".txt";
+        
+        # Respond with success message
+        print "HTTP/1.1 200 OK";
+        print "Content-Type: text/html";
+        print "";
+        print "&lt;html&gt;&lt;body&gt;&lt;h1&gt;New Post Created!&lt;/h1&gt;&lt;a href=\"/\"&gt;Back to Homepage&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;";
+    }
+}</code></pre>
+
+    <p>This code:</p>
+    <ul>
+        <li>Reads incoming POST request data and splits it into key-value pairs.</li>
+        <li>Saves the extracted title and body to a text file (simulating a simple blog post storage).</li>
+        <li>Prints an HTML response indicating that the new post has been created.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>While AWK is primarily a text processing tool, this tutorial demonstrates its versatility in handling basic HTTP requests to build a simple blog platform. By using AWK alongside Unix tools like Netcat, we’ve shown how to process GET and POST requests, create dynamic routes, and even save new posts.</p>
+
+    <p>For developers looking to experiment with AWK’s capabilities beyond traditional use cases, this approach offers a unique way to combine text processing with web server functionality. While AWK may not replace traditional web servers, it’s an excellent example of creative problem-solving with command-line utilities.</p>
+
+    <p><strong>Thanks for reading!</strong></p>
+

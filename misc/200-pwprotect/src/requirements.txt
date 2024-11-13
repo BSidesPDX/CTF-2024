@@ -1,0 +1,4 @@
+flask
+openai==1.45.0
+gunicorn
+flask_limiter

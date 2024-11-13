@@ -1,0 +1,49 @@
+body {
+    background-color: black;
+    color: #07fc03;
+}
+
+#computer {
+    height: 800px;
+    width: 800px;
+    background-color: rgb(91, 73, 73);
+    display: grid;
+    margin: auto;
+}
+#computerImage {
+    position: absolute;
+    place-self: center;
+    text-align: center;
+    width: 800px;
+    height: 800px;
+    margin: auto;
+    z-index: 1;
+    pointer-events: none;
+}
+#computerScreen {
+    position: absolute;
+    justify-self: center;
+    margin-top: 100px;
+    align-items: center;
+    text-align: center;
+    width: 460px;
+    height: 430px;
+    background-color: rgb(20,20,20);
+    display: grid;
+    z-index: 0;
+}
+#responseBox {
+    width: 90%;
+    margin: auto;
+    display: inline;
+}
+#questionBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+#questionInput {
+    width: 400px;
+}
