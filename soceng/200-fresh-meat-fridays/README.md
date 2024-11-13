@@ -18,6 +18,28 @@ If you’re new to social engineering, you might want to do some reading and bui
 Points: 200, static
 Author: Allison
 
+## Grading Scheme
+
+Callers were judged by the following rubric, and must have scored an 11 or higher to receive the flag:
+
+- Is there pressure to impress the caller?
+  - New employees want to impress senior manager
+  - 1-5 pts for pressure
+- Pressure to go along with the call?
+  - Like sales tactics? /Rhetorical tricks like leading questions/cold reading
+  - 1-5 pts for pressure
+- Create sense of urgency
+  - Is caller angry, intimidating, scared, upset?
+  - 1-5 pts for pressure
+- Attempt to establish a rapport
+  - Such as pretending to already know the person from a prior meeting
+- Is the caller’s story is viable? 1-10
+  - Contractor visiting office
+  - Other new employee whose manager has already left for the day
+- Breaking character: -1
+  - New employee would get suspicious 
+- If they’re really committed to the bit or make you laugh 
+
 ## Flag
 
 `pdx{Energy4Tomorrow021520}`
