@@ -95,7 +95,7 @@ And thank you to all of the volunteers who helped run these challenges day-of! <
 
 **Duke's Dinner Party:**
 - Winner: Flying Hedgehogs
-- Honorable Mention: ??
+- Honorable Mention: ?? (solved using only a piece of paper, team name was unfortunately not noted)
 
 ## More Stats :3
 
